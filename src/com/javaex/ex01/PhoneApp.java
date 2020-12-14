@@ -38,31 +38,33 @@ public class PhoneApp {
 
 		// 입력
 		while (true) {
-			while (true) {
-				line = br.readLine();
-				if (line == null) {
-					break;
-				}
-				String[] pInfo = line.split(",");
-				Person person = new Person(pInfo[0], pInfo[1], pInfo[2]);
-				list.add(person);
-			}
-
-			Writer fw = new FileWriter("C:\\javaStudy\\PhoneDB.txt");
-			BufferedWriter bw = new BufferedWriter(fw);
 
 			System.out.print(">메뉴번호: ");
 			int num = sc.nextInt();
 
 			if (num == 1) {
-				System.out.println("<1.리스트>");
+				while (true) {
+					System.out.println("<1.리스트>");
+
+					line = br.readLine();
+					if (line == null) {
+						break;
+					}
+					String[] pInfo = line.split(",");
+					Person person = new Person(pInfo[0], pInfo[1], pInfo[2]);
+					list.add(person);
+				}
+
 				for (int i = 0; i < list.size(); i++) {
 					System.out.print((i + 1) + "." + "   ");
 					list.get(i).showInfo();
 				}
 				System.out.println("");
 
-			} else if (num == 2) { //중복으로 등록됨, ArrayIndexOutOfBoundsException, 계속 돌리면 텍스트파일 데이터 사라짐
+			} else if (num == 2) { // 중복으로 출력됨, ArrayIndexOutOfBoundsException, 계속 돌리면 텍스트파일 데이터 사라짐 --> 대충 해결했는데 다시 해보기
+
+				Writer fw = new FileWriter("C:\\javaStudy\\PhoneDB.txt");
+				BufferedWriter bw = new BufferedWriter(fw);
 
 				Person person = new Person();
 
@@ -87,7 +89,12 @@ public class PhoneApp {
 				System.out.println("[등록되었습니다]");
 				System.out.println("");
 
+				bw.close();
+
 			} else if (num == 3) {
+				Writer fw = new FileWriter("C:\\javaStudy\\PhoneDB.txt");
+				BufferedWriter bw = new BufferedWriter(fw);
+
 				System.out.println("<3.삭제>");
 				System.out.print(">번호: ");
 				int i = sc.nextInt();
@@ -100,6 +107,8 @@ public class PhoneApp {
 				}
 				System.out.println("삭제되었습니다.");
 				System.out.println("");
+
+				bw.close();
 
 			} else if (num == 4) {
 				System.out.println("<4.검색>");
@@ -114,11 +123,9 @@ public class PhoneApp {
 				System.out.println("");
 			}
 
-			bw.close();
 		}
 
 		br.close();
-
 		sc.close();
 	}
 
