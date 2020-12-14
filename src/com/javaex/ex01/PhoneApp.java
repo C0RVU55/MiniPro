@@ -60,20 +60,22 @@ public class PhoneApp {
 					System.out.print((i + 1) + "." + "   ");
 					list.get(i).showInfo();
 				}
+				System.out.println("");
 
-			} else if (num == 2) {
+			} else if (num == 2) { //중복으로 등록됨, ArrayIndexOutOfBoundsException, 계속 돌리면 텍스트파일 데이터 사라짐
 
 				Person person = new Person();
 
 				System.out.println("<2.등록>");
+
 				System.out.print(">이름: ");
-				person.setName(sc.nextLine());
-				System.out.println("");
+				person.setName(sc.next()); // nextLine으로 해서 계속 타이핑 위치 이상했음
+
 				System.out.print(">휴대전화: ");
-				person.setHp(sc.nextLine());
-				System.out.println("");
+				person.setHp(sc.next());
+
 				System.out.print(">회사전화: ");
-				person.setCompany(sc.nextLine());
+				person.setCompany(sc.next());
 
 				list.add(person);
 
@@ -83,6 +85,7 @@ public class PhoneApp {
 					bw.newLine();
 				}
 				System.out.println("[등록되었습니다]");
+				System.out.println("");
 
 			} else if (num == 3) {
 				System.out.println("<3.삭제>");
@@ -96,8 +99,10 @@ public class PhoneApp {
 					bw.newLine();
 				}
 				System.out.println("삭제되었습니다.");
+				System.out.println("");
 
 			} else if (num == 4) {
+				System.out.println("<4.검색>");
 
 			} else if (num == 5) {
 				System.out.println("****************************************");
@@ -106,6 +111,7 @@ public class PhoneApp {
 				break;
 			} else {
 				System.out.println("[다시 입력해 주세요.]");
+				System.out.println("");
 			}
 
 			bw.close();
