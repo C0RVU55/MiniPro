@@ -43,9 +43,9 @@ public class PhoneApp {
 			int num = sc.nextInt();
 
 			if (num == 1) {
-				while (true) {
-					System.out.println("<1.리스트>");
+				System.out.println("<1.리스트>");
 
+				while (true) {
 					line = br.readLine();
 					if (line == null) {
 						break;
@@ -59,9 +59,10 @@ public class PhoneApp {
 					System.out.print((i + 1) + "." + "   ");
 					list.get(i).showInfo();
 				}
+
 				System.out.println("");
 
-			} else if (num == 2) { // 중복으로 출력됨, ArrayIndexOutOfBoundsException, 계속 돌리면 텍스트파일 데이터 사라짐 --> 대충 해결했는데 다시 해보기
+			} else if (num == 2) { // 중복으로 출력됨, ArrayIndexOutOfBoundsException, 계속 돌리면 텍스트파일 데이터 사라짐 --> 대충 해결됐는데 다시 해보기
 
 				Writer fw = new FileWriter("C:\\javaStudy\\PhoneDB.txt");
 				BufferedWriter bw = new BufferedWriter(fw);
@@ -97,8 +98,8 @@ public class PhoneApp {
 
 				System.out.println("<3.삭제>");
 				System.out.print(">번호: ");
-				int i = sc.nextInt();
-				list.remove((i - 1));
+				int no = sc.nextInt();
+				list.remove((no - 1));
 
 				for (Person p : list) {
 					String str = p.getName() + "," + p.getHp() + "," + p.getCompany();
@@ -110,7 +111,7 @@ public class PhoneApp {
 
 				bw.close();
 
-			} else if (num == 4) {
+			} else if (num == 4) { //검색 못 짰음.
 				System.out.println("<4.검색>");
 
 			} else if (num == 5) {
