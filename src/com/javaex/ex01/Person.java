@@ -48,8 +48,5 @@ public class Person {
 	public String toString() {
 		return "Person [name=" + name + ", hp=" + hp + ", company=" + company + "]";
 	}
-	public void showInfo() {
-		System.out.println(name+"   "+hp+"   "+company);
-	}
 
 }
