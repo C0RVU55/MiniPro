@@ -1,6 +1,6 @@
 package com.javaex.ex01_2;
 
-public class Number {
+public class Person {
 
 	// 필드
 	private String name;
@@ -8,10 +8,10 @@ public class Number {
 	private String company;
 
 	// 생성자
-	public Number() {
+	public Person() {
 	}
 
-	public Number(String name, String hp, String company) {
+	public Person(String name, String hp, String company) {
 		super();
 		this.name = name;
 		this.hp = hp;
